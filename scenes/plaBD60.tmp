@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://dy1qymm4vstlq"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_52osg"]
+[ext_resource type="Texture2D" uid="uid://cfc6yk421b45q" path="res://sprites/collectables/size-change-big.png" id="2_t6nc3"]
+[ext_resource type="Script" path="res://scripts/size_track.gd" id="3_6rmq0"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_j7bt7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_depf6"]
+radius = 0.56
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4tgdm"]
+radius = 1.0
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_52osg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_j7bt7")
+
+[node name="cam_origin" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.601172, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="cam_origin"]
+spring_length = 2.0
+margin = 0.5
+
+[node name="Camera3D" type="Camera3D" parent="cam_origin/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.56882)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_depf6")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CapsuleShape3D_4tgdm")
+
+[node name="size_big_col" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_t6nc3")
+
+[node name="Label" type="Label" parent="size_big_col"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 51.0
+offset_right = 89.0
+offset_bottom = 118.0
+theme_override_font_sizes/font_size = 46
+text = "0
+"
+script = ExtResource("3_6rmq0")

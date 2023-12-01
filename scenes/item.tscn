@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://bod134op7ylah"]
+
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_rpbxw"]
+[ext_resource type="Texture2D" uid="uid://icey1qpbpbiu" path="res://sprites/collectables/size-change-small.png" id="2_roogb"]
+[ext_resource type="AudioStream" uid="uid://dggbc2qh12f2k" path="res://sound/scale_enlarge.ogg" id="2_ynf5n"]
+[ext_resource type="AudioStream" uid="uid://dauadfrovtitc" path="res://sound/scale_shrink.ogg" id="3_8c21k"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1hb81"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ynyto"]
+albedo_texture = ExtResource("2_roogb")
+uv1_scale = Vector3(0.63, 0.63, 0.63)
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g56bd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kwadr"]
+size = Vector3(1.2, 1.2, 1.2)
+
+[node name="interactable" type="Node3D"]
+script = ExtResource("1_rpbxw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_1hb81")
+surface_material_override/0 = SubResource("StandardMaterial3D_ynyto")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_g56bd")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="interactable_area" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_kwadr")
+
+[node name="AudioStreamPlayer_big" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ynf5n")
+
+[node name="AudioStreamPlayer_small" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8c21k")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

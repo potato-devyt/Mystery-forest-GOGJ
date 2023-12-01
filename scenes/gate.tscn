@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds2w1rqw0lptr"]
+
+[ext_resource type="Texture2D" uid="uid://cj823i58h0imf" path="res://level_godot/gate.png" id="1_otocr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ujc8r"]
+size = Vector3(0.329233, 0.317889, 0.0308117)
+
+[node name="gate" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.165867, 0)
+texture_filter = 0
+texture = ExtResource("1_otocr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sprite3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sprite3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0163881, 0)
+shape = SubResource("BoxShape3D_ujc8r")

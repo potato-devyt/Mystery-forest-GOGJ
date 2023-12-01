@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dh2ggwbvgoa0l"]
+
+[ext_resource type="Script" path="res://scripts/fade_in.gd" id="1_emt40"]
+[ext_resource type="PackedScene" uid="uid://c26dcgataoc22" path="res://Transition/level_transition/level_transition.tscn" id="2_5ospk"]
+[ext_resource type="AudioStream" uid="uid://cmsk44pkgj5v" path="res://sound/lever_off.ogg" id="3_duuj7"]
+
+[node name="fade_in" type="Node3D"]
+script = ExtResource("1_emt40")
+
+[node name="root" parent="." instance=ExtResource("2_5ospk")]
+
+[node name="fade" parent="root/CanvasLayer" index="0"]
+visible = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" parent="root/CanvasLayer" index="1"]
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_duuj7")
+
+[editable path="root"]

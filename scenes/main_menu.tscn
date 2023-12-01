@@ -1,0 +1,236 @@
+[gd_scene load_steps=13 format=3 uid="uid://b0ste6e2hq6iw"]
+
+[ext_resource type="Texture2D" uid="uid://cfc6yk421b45q" path="res://sprites/collectables/size-change-big.png" id="1_km5d8"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_pt0ef"]
+[ext_resource type="Texture2D" uid="uid://cthow8tbc1mb2" path="res://sprites/collectables/size-change-normal.png" id="2_ts5k2"]
+[ext_resource type="Texture2D" uid="uid://icey1qpbpbiu" path="res://sprites/collectables/size-change-small.png" id="3_c1xfo"]
+[ext_resource type="PackedScene" uid="uid://dlathbdre75tp" path="res://level_models/level_0_tut.tscn" id="4_pa8ni"]
+[ext_resource type="PackedScene" uid="uid://db8nj422omoov" path="res://scenes/tree.tscn" id="5_w0fa1"]
+[ext_resource type="Texture2D" uid="uid://dyo4m7yrxkivn" path="res://sprites/NEW/sign.png" id="6_87np2"]
+[ext_resource type="Texture2D" uid="uid://dqtiiyuv4ygui" path="res://sprites/text/finishlevel.png" id="7_vmmyq"]
+[ext_resource type="PackedScene" uid="uid://dwtnccksj2bg8" path="res://scenes/music.tscn" id="8_frpcr"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qmidp"]
+
+[sub_resource type="Sky" id="Sky_f5lna"]
+sky_material = SubResource("ProceduralSkyMaterial_qmidp")
+
+[sub_resource type="Environment" id="Environment_dk1nu"]
+background_mode = 2
+background_energy_multiplier = 3.69
+sky = SubResource("Sky_f5lna")
+ambient_light_energy = 16.0
+ssr_enabled = true
+ssao_enabled = true
+adjustment_enabled = true
+adjustment_saturation = 1.55
+
+[node name="main_menu" type="Node3D"]
+script = ExtResource("1_pt0ef")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 101.0
+offset_top = -182.0
+offset_right = 649.0
+offset_bottom = -143.0
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 26
+text = "This tracks how many BIG resizes you have. PRESS 1 to use"
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 101.0
+offset_top = -119.0
+offset_right = 649.0
+offset_bottom = -80.0
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 26
+text = "This tracks how many RESET resizes you have. PRESS  B to use"
+
+[node name="Label5" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -255.0
+offset_right = 771.0
+offset_bottom = -216.0
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 26
+text = "Press R To Reset the level"
+
+[node name="Label6" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -298.0
+offset_right = 771.0
+offset_bottom = -259.0
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 26
+text = "Press Q To QUIT"
+
+[node name="Label3" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 101.0
+offset_top = -62.0
+offset_right = 649.0
+offset_bottom = -23.0
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 26
+text = "This tracks how many SMALL resizes you have. PRESS 2 to use"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -194.0
+offset_right = 64.0
+offset_bottom = -130.0
+grow_vertical = 0
+texture = ExtResource("1_km5d8")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -126.0
+offset_right = 64.0
+offset_bottom = -62.0
+grow_vertical = 0
+texture = ExtResource("2_ts5k2")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_right = 64.0
+grow_vertical = 0
+texture = ExtResource("3_c1xfo")
+
+[node name="Label4" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 55
+theme_override_font_sizes/font_size = 81
+text = "MYSTERY FOREST"
+
+[node name="Button" type="Button" parent="."]
+offset_top = 131.0
+offset_right = 673.0
+offset_bottom = 250.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 50
+theme_override_font_sizes/font_size = 81
+text = "Play"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dk1nu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.66529, 0.746447, -0.0143262, -0.669501, 0.604982, 0.431004, 0.330389, -0.277151, 0.902236, 0, 6.73684, 0)
+light_energy = 0.8
+shadow_enabled = true
+directional_shadow_mode = 1
+
+[node name="level_tutorial" parent="." instance=ExtResource("4_pa8ni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.7345, 0.5, 7.74435)
+
+[node name="trees" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.58091, 0)
+
+[node name="tree" parent="trees" instance=ExtResource("5_w0fa1")]
+transform = Transform3D(6.317, 0, 0, 0, 6.317, 0, 0, 0, 6.317, -47.7908, 0.914082, 28.8899)
+
+[node name="tree19" parent="trees" instance=ExtResource("5_w0fa1")]
+transform = Transform3D(6.317, 0, 0, 0, 6.317, 0, 0, 0, 6.317, -39.4659, 0.914082, 45.5118)
+
+[node name="tree20" parent="trees" instance=ExtResource("5_w0fa1")]
+transform = Transform3D(6.317, 0, 0, 0, 6.317, 0, 0, 0, 6.317, -49.4659, 0.914082, 44.5118)
+
+[node name="tree22" parent="trees" instance=ExtResource("5_w0fa1")]
+transform = Transform3D(6.317, 0, 0, 0, 6.317, 0, 0, 0, 6.317, -38.8567, 0.914082, 54.3803)
+
+[node name="tree23" parent="trees" instance=ExtResource("5_w0fa1")]
+transform = Transform3D(6.317, 0, 0, 0, 6.317, 0, 0, 0, 6.317, -48.8567, 0.914082, 52.3803)
+
+[node name="tree24" parent="trees" instance=ExtResource("5_w0fa1")]
+transform = Transform3D(6.317, 0, 0, 0, 6.317, 0, 0, 0, 6.317, -37.8567, 0.914082, 49.3803)
+
+[node name="tree25" parent="trees" instance=ExtResource("5_w0fa1")]
+transform = Transform3D(6.317, 0, 0, 0, 6.317, 0, 0, 0, 6.317, -50.8567, 0.914082, 57.3803)
+
+[node name="tree26" parent="trees" instance=ExtResource("5_w0fa1")]
+transform = Transform3D(6.317, 0, 0, 0, 6.317, 0, 0, 0, 6.317, -35.8567, 0.914082, 59.3803)
+
+[node name="tree3" parent="trees" instance=ExtResource("5_w0fa1")]
+transform = Transform3D(6.317, 0, 0, 0, 6.317, 0, 0, 0, 6.317, -47.8186, 0.914082, 23.3735)
+
+[node name="tree4" parent="trees" instance=ExtResource("5_w0fa1")]
+transform = Transform3D(6.317, 0, 0, 0, 6.317, 0, 0, 0, 6.317, -38.0411, 0.914082, 14.6569)
+
+[node name="tree6" parent="trees" instance=ExtResource("5_w0fa1")]
+transform = Transform3D(6.317, 0, 0, 0, 6.317, 0, 0, 0, 6.317, -39.2488, 0.914782, 28.6163)
+
+[node name="tree9" parent="trees" instance=ExtResource("5_w0fa1")]
+transform = Transform3D(6.317, 0, 0, 0, 6.317, 0, 0, 0, 6.317, -50.4427, 0.914072, 40.1535)
+
+[node name="tree10" parent="trees" instance=ExtResource("5_w0fa1")]
+transform = Transform3D(6.317, 0, 0, 0, 6.317, 0, 0, 0, 6.317, -37.5597, 0.914082, 39.2114)
+
+[node name="tree11" parent="trees" instance=ExtResource("5_w0fa1")]
+transform = Transform3D(6.317, 0, 0, 0, 6.317, 0, 0, 0, 6.317, -35.0634, 0.914082, 30.8514)
+
+[node name="tree12" parent="trees" instance=ExtResource("5_w0fa1")]
+transform = Transform3D(6.317, 0, 0, 0, 6.317, 0, 0, 0, 6.317, -34.8014, 0.914082, 17.5614)
+
+[node name="tree14" parent="trees" instance=ExtResource("5_w0fa1")]
+transform = Transform3D(6.317, 0, 0, 0, 6.317, 0, 0, 0, 6.317, -49.5482, 0.914082, 17.3061)
+
+[node name="tree15" parent="trees" instance=ExtResource("5_w0fa1")]
+transform = Transform3D(6.317, 0, 0, 0, 6.317, 0, 0, 0, 6.317, -51.0399, 0.914082, 5.41494)
+
+[node name="tree17" parent="trees" instance=ExtResource("5_w0fa1")]
+transform = Transform3D(6.317, 0, 0, 0, 6.317, 0, 0, 0, 6.317, -36.1733, 0.914082, 7.59806)
+
+[node name="tree18" parent="trees" instance=ExtResource("5_w0fa1")]
+transform = Transform3D(6.317, 0, 0, 0, 6.317, 0, 0, 0, 6.317, -46.1733, 0.914082, 4.59806)
+
+[node name="sign" type="Node3D" parent="."]
+transform = Transform3D(5.603, 0, 0, 0, 5.603, 0, 0, 0, 5.603, -46.5474, 1.07969, -23.0149)
+
+[node name="Sprite3D" type="Sprite3D" parent="sign"]
+texture_filter = 0
+texture = ExtResource("6_87np2")
+
+[node name="Sprite3D" type="Sprite3D" parent="sign/Sprite3D"]
+transform = Transform3D(0.023, 0, 4.54747e-13, 5.45697e-12, 0.023, 1.33649e-12, 0, -4.82503e-13, 0.023, -0.000136614, 0.181777, -8.29697e-05)
+texture = ExtResource("7_vmmyq")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.9188, 2.74862, 55.7181)
+
+[node name="music" parent="." instance=ExtResource("8_frpcr")]
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

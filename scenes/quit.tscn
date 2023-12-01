@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://h0ey6ug684pw"]
+
+[ext_resource type="Script" path="res://scripts/quit.gd" id="1_at7ai"]
+
+[node name="quit" type="Node3D"]
+script = ExtResource("1_at7ai")

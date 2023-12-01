@@ -1,0 +1,34 @@
+[gd_scene load_steps=8 format=3 uid="uid://bxy7don586x0p"]
+
+[ext_resource type="Shader" path="res://waterfall/waterfall/water_fall.gdshader" id="1_f75vi"]
+[ext_resource type="Script" path="res://scripts/water.gd" id="1_l6hsa"]
+[ext_resource type="Texture2D" uid="uid://f4m7u8bx5gdd" path="res://waterfall/waterfall/displacement.png" id="2_bltm8"]
+[ext_resource type="Texture2D" uid="uid://comgrfpbw0hkh" path="res://waterfall/waterfall/noise.png" id="3_3e5mh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2bjln"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dq4s6"]
+render_priority = 0
+shader = ExtResource("1_f75vi")
+shader_parameter/speed = 0.105
+shader_parameter/color = Color(0.101961, 0.352941, 0.494118, 1)
+shader_parameter/color_mix = 0.859
+shader_parameter/distort_mix = 0.0
+shader_parameter/noise_tex = ExtResource("3_3e5mh")
+shader_parameter/displ_tex = ExtResource("2_bltm8")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5rr7q"]
+
+[node name="waterfall" type="Node3D"]
+script = ExtResource("1_l6hsa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_2bjln")
+surface_material_override/0 = SubResource("ShaderMaterial_dq4s6")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_5rr7q")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
